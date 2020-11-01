@@ -12,7 +12,7 @@ Function Get-SurfBoardUpStream {
         $table = "Upstream"
     }
     Process {
-        if ($PSCmdlet.ShouldProcess($ComputerName)){
+        if ($PSCmdlet.ShouldProcess($ComputerName)) {
             Return $(Get-SurfBoardSignalData -ComputerName $ComputerName).$path.$table
         }
     }

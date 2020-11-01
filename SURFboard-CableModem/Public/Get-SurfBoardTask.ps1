@@ -12,7 +12,7 @@ Function Get-SurfBoardTask {
         $table = "Task"
     }
     Process {
-        if ($PSCmdlet.ShouldProcess($ComputerName)){
+        if ($PSCmdlet.ShouldProcess($ComputerName)) {
             Return $(Get-SurfBoardIndexData -ComputerName $ComputerName).$path.$table
         }
     }

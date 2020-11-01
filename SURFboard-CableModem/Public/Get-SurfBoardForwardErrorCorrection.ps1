@@ -10,7 +10,7 @@ Function Get-SurfBoardForwardErrorCorrection {
         Write-Verbose "Begin $($MyInvocation.MyCommand)"
     }
     Process {
-        if ($PSCmdlet.ShouldProcess($ComputerName)){
+        if ($PSCmdlet.ShouldProcess($ComputerName)) {
             $codewords = Get-SurfBoardSignalStatus -ComputerName $ComputerName
             $fecs = @()
             $unerrored = $($codewords.'Total Unerrored Codewords' | Measure-Object -Sum).Sum

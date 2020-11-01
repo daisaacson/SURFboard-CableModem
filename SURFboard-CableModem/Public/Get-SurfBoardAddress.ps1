@@ -12,7 +12,7 @@ Function Get-SurfBoardAddress {
         $table = "Item"
     }
     Process {
-        if ($PSCmdlet.ShouldProcess($ComputerName)){
+        if ($PSCmdlet.ShouldProcess($ComputerName)) {
             Return $(Get-SurfBoardAddressData -ComputerName $ComputerName).$path.$table
         }
     }

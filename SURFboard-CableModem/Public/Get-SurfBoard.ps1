@@ -10,7 +10,7 @@ Function Get-SurfBoard {
         Write-Verbose "Begin $($MyInvocation.MyCommand)"
     }
     Process {
-        if ($PSCmdlet.ShouldProcess($ComputerName)){
+        if ($PSCmdlet.ShouldProcess($ComputerName)) {
             $data = [ordered]@{}
             $data += Get-SurfBoardIndexData -ComputerName $ComputerName
             $data += Get-SurfBoardSignalData -ComputerName $ComputerName

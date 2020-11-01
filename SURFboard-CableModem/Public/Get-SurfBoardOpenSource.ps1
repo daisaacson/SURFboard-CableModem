@@ -12,7 +12,7 @@ Function Get-SurfBoardOpenSource {
         $table = "Open Source License"
     }
     Process {
-        if ($PSCmdlet.ShouldProcess($ComputerName)){
+        if ($PSCmdlet.ShouldProcess($ComputerName)) {
             Return $(Get-SurfBoardOpenSourceData -ComputerName $ComputerName).$path.$table
         }
     }
