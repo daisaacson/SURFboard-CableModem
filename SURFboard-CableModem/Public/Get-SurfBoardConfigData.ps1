@@ -19,6 +19,7 @@ Function Get-SurfBoardConfigData {
             # cmConfigData page has one table
             foreach ($table in $Response.ParsedHtml.getElementsByTagName("TABLE")) {
                 foreach ($row in $table.Rows) {
+                    $key=$value = $null
                     if ($row.Cells[0].tagName -eq "TH") {
                         [string]$element = $row.Cells[0].innerText.Trim()
                         $data.$path.$element = [ordered]@{}
