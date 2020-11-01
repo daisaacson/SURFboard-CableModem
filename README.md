@@ -7,8 +7,15 @@ I included a script, ```SurfBoard-Log.ps1```, I'm using to log cable modem infor
 
 I've only tested this on SB6120
 
-## Instalation
-Install the ```SURFboard-CableModem``` to a PowerShell modules directory.  Optionaly save anywhere and import using the path to the directory, ```Import-Module .\Path\to\SURFboard-CableModem```
+## Installation
+ [PowerShell Gallery](https://www.powershellgallery.com/packages/SURFboard-CableModem)
+ ```
+ Install-Module -Name SURFboard-CableModem
+ ```
+
+Optional:
+
+Install the ```SURFboard-CableModem``` to a PowerShell modules directory, or save anywhere and import using the path to the directory, ```Import-Module .\Path\to\SURFboard-CableModem```
 
 ## Functions
 Here are a list of **Functions** available and the function *alias*
