@@ -18,6 +18,7 @@ Function Get-SurfBoardAddressData {
             $data.$path = [ordered]@{}
             # 1st table
             foreach ($row in $Response.ParsedHtml.getElementsByTagName("TABLE")[0].Rows) {
+                $key=$value = $null
                 if ($row.Cells[0].tagName -eq "TH") {
                     [string]$element = $row.Cells[0].innerText.Trim()
                     $data.$path.$element = [ordered]@{}
@@ -29,6 +30,7 @@ Function Get-SurfBoardAddressData {
             }
             # 2nd table
             foreach ($row in $Response.ParsedHtml.getElementsByTagName("TABLE")[1].Rows) {
+                $key=$value = $null
                 if ($row.Cells[1].tagName -eq "TH") {
                     [string]$element = $row.Cells[1].innerText.Trim()
                     $data.$path.$element = @()

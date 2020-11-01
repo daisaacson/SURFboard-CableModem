@@ -20,6 +20,7 @@ Function Get-SurfBoardSignalData {
             foreach ($table in $Response.ParsedHtml.getElementsByTagName("TABLE")) {
                 # Process each row
                 foreach ($row in $table.Rows) {
+                    $key=$value = $null
                     # If row is a Table Heading, a new hashtable elemant and create an empty array for entries
                     if ($row.Cells[0].tagName -eq "TH") {
                         [string]$element = $row.Cells[0].innerText.Trim()

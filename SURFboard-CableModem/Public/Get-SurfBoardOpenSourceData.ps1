@@ -19,6 +19,7 @@ Function Get-SurfBoardOpenSourceData {
             # cmOpenSourceData page has nested tables, we need the 2nd table
             $data.$path = [ordered]@{}
             foreach ($row in $Response.ParsedHtml.getElementsByTagName("TABLE")[1].Rows) {
+                $key=$value = $null
                 if ($row.Cells[0].tagName -eq "TH") {
                     [string]$element = $row.Cells[0].innerText.Trim()
                     $data.$path.$element = [ordered]@{}
