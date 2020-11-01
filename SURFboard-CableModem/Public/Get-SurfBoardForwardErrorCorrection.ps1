@@ -1,4 +1,4 @@
-Function Get-SurfBoardForwardErrorCorretion {
+Function Get-SurfBoardForwardErrorCorrection {
     [CmdletBinding(SupportsShouldProcess=$True)]
     Param (
         [Parameter(ValueFromPipelineByPropertyName=$true,ValueFromPipeline=$true)]
@@ -48,4 +48,4 @@ Function Get-SurfBoardForwardErrorCorretion {
 
     }
 }
-Set-Alias -Name gsbfec -Value Get-SurfBoardForwardErrorCorretion
+Set-Alias -Name gsbfec -Value Get-SurfBoardForwardErrorCorrection
