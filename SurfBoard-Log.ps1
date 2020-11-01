@@ -1,4 +1,4 @@
-Import-Module .\SURFboard-CableModem
+Import-Module SURFboard-CableModem
 
 $modem = "192.168.100.1"
 
