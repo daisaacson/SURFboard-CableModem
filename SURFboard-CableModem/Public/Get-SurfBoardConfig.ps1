@@ -12,7 +12,7 @@ Function Get-SurfBoardConfig {
         $table = "Configuration"
     }
     Process {
-        if ($PSCmdlet.ShouldProcess($ComputerName)){
+        if ($PSCmdlet.ShouldProcess($ComputerName)) {
             Return $(Get-SurfBoardConfigData -ComputerName $ComputerName).$path.$table
         }
     }

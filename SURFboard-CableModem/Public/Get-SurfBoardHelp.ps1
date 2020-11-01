@@ -11,7 +11,7 @@ Function Get-SurfBoardHelp {
         $path = "cmHelpData"
     }
     Process {
-        if ($PSCmdlet.ShouldProcess($ComputerName)){
+        if ($PSCmdlet.ShouldProcess($ComputerName)) {
             Return $(Get-SurfBoardHelpData -ComputerName $ComputerName).$path
         }
     }

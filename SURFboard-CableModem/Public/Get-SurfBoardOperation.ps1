@@ -12,7 +12,7 @@ Function Get-SurfBoardOperation {
         $table = "Cable Modem Operation"
     }
     Process {
-        if ($PSCmdlet.ShouldProcess($ComputerName)){
+        if ($PSCmdlet.ShouldProcess($ComputerName)) {
             Return $(Get-SurfBoardIndexData -ComputerName $ComputerName).$path.$table
         }
     }

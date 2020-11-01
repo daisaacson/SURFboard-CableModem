@@ -12,7 +12,7 @@ Function Get-SurfBoardMAC {
         $table = "Known CPE MAC Address (Max 1)"
     }
     Process {
-        if ($PSCmdlet.ShouldProcess($ComputerName)){
+        if ($PSCmdlet.ShouldProcess($ComputerName)) {
             Return $(Get-SurfBoardAddressData -ComputerName $ComputerName).$path.$table
         }
     }

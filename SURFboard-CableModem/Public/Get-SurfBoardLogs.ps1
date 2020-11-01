@@ -11,7 +11,7 @@ Function Get-SurfBoardLogs {
         $path = "cmLogsData"
     }
     Process {
-        if ($PSCmdlet.ShouldProcess($ComputerName)){
+        if ($PSCmdlet.ShouldProcess($ComputerName)) {
             Return $(Get-SurfBoardLogsData -ComputerName $ComputerName).$path
         }
     }

@@ -11,7 +11,7 @@ Function Get-SurfBoardAddressData {
         $path = "cmAddressData"
     }
     Process {
-        if ($PSCmdlet.ShouldProcess($ComputerName)){
+        if ($PSCmdlet.ShouldProcess($ComputerName)) {
             $Response = Invoke-WebRequest -Uri "http://$($ComputerName)$($surfboardURIs.$path)"
 
             $data = [ordered]@{}
