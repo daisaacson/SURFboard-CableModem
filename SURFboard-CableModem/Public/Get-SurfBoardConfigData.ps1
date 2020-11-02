@@ -26,7 +26,13 @@ Function Get-SurfBoardConfigData {
                     } else {
                         try {
                             [string]$key = $row.Cells[0].InnerText.Trim()
-                            [string]$value = $row.Cells[1].InnerText.Trim()
+                            # Check if TD has select/option tags
+                            if ($row.Cells[1].GetElementsbyTagName("OPTION") -ne "") {
+                                # Select the OPTION tag that is selected 
+                                [string]$value = $($row.Cells[1].GetElementsbyTagName("OPTION") | Where-Object { $_.selected -eq $True } | Select-Object -Property text).text.Trim()
+                            } else {
+                                [string]$value = $row.Cells[1].InnerText.Trim()
+                            }
                             if ($key -match '(DHCP Server).+') {
                                 $key = $Matches[1]
                             }
