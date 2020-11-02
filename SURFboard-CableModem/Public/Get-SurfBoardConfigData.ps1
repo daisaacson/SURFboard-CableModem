@@ -26,23 +26,26 @@ Function Get-SurfBoardConfigData {
                     } else {
                         try {
                             [string]$key = $row.Cells[0].InnerText.Trim()
-                            # Check if TD has select/option tags
-                            if ($row.Cells[1].GetElementsbyTagName("OPTION") -ne "") {
-                                # Select the OPTION tag that is selected 
-                                [string]$value = $($row.Cells[1].GetElementsbyTagName("OPTION") | Where-Object { $_.selected -eq $True } | Select-Object -Property text).text.Trim()
-                            } else {
-                                [string]$value = $row.Cells[1].InnerText.Trim()
-                            }
-                            if ($key -match '(DHCP Server).+') {
+                            if ($key -match '(DHCP Server)\s+(\w+).+') {
                                 $key = $Matches[1]
+                                $value = $Matches[2]
                             }
-                            if ($value -match '^(-?\d+\.?\d*)(?:\s+(.+))?$') {
-                                [double]$value = $Matches[1]
-                                if ($Matches[2]) {
-                                    $key = "$key ($($Matches[2]))"
+                            if ($row.Cells.length -gt 1) {
+                                # Check if TD has select/option tags
+                                if ($row.Cells[1].GetElementsbyTagName("OPTION") -ne "") {
+                                    # Select the OPTION tag that is selected 
+                                    [string]$value = $($row.Cells[1].GetElementsbyTagName("OPTION") | Where-Object { $_.selected -eq $True } | Select-Object -Property text).text.Trim()
+                                } else {
+                                    [string]$value = $row.Cells[1].InnerText.Trim()
+                                }
+                                if ($value -match '^(-?\d+\.?\d*)(?:\s+(.+))?$') {
+                                    [double]$value = $Matches[1]
+                                    if ($Matches[2]) {
+                                        $key = "$key ($($Matches[2]))"
+                                    }
                                 }
                             }
-                        } catch {}
+                        } catch { Write-Error $_ }
                         $data.$path.$element.$key = $value
                     }
                 }
