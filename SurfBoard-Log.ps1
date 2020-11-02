@@ -6,4 +6,4 @@ $log = [ordered]@{}
 $log.'Date Time' = Get-SurfBoardBootTime -ComputerName $modem
 $log += Get-SurfBoard -ComputerName $modem
 
-$log | ConvertTo-Json -Depth 100 -Compress | Out-File -Append .\SurfBoard-Log.json
+$log | ConvertTo-Json -Depth 6 -Compress | Out-File -Append .\SurfBoard-Log.json
